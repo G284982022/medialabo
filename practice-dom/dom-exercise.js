@@ -10,23 +10,51 @@ let data = [
 	{name:'福岡', lat:33.60639, lng:130.41806},
 	{name:'鹿児島', lat:31.56028, lng:130.55806},
 	{name:'沖縄', lat:26.2125, lng:127.68111}
-];
-//// 注意: 以上は編集しないこと!
-
-// 練習4-2 メッセージ追加プログラム
-
-const paragraph = document.createElement('p');
-paragraph.style.textEmphasis = 'sesame green';
-paragraph.textContent = '写真表と都市の緯度経度のページです';
-
-const ex42Heading = document.querySelector('h2#ex42');
-ex42Heading.insertAdjacentElement('afterend', paragraph);
-
-// 練習4-3 写真表作成プログラム
-
-
-// 練習4-4 箇条書き削除プログラム
-
-
-// 練習4-5 箇条書き追加プログラム
-
+  ];
+  //// 注意: 以上は編集しないこと!
+  
+  // 練習4-2 メッセージ追加プログラム
+  var pElement = document.createElement('p');
+  pElement.style.color = 'sesame green';
+  pElement.textContent = '写真表と都市の緯度経度のページです';
+  
+  var ex42Element = document.getElementById('ex42');
+  
+  ex42Element.insertAdjacentElement('afterend', pElement);
+  
+  
+  // 練習4-3 写真表作成プログラム
+  var pElement1 = document.createElement('p');
+  var imgElement1 = document.createElement('img');
+  imgElement1.src = 'taro.png';
+  pElement1.appendChild(imgElement1);
+  
+  var pElement2 = document.createElement('p');
+  var imgElement2 = document.createElement('img');
+  imgElement2.src = 'jiro.png';
+  pElement2.appendChild(imgElement2);
+  
+  var pElement3 = document.createElement('p');
+  var imgElement3 = document.createElement('img');
+  imgElement3.src = 'hanako.png';
+  pElement3.appendChild(imgElement3);
+  
+  var phototableElement = document.getElementById('phototable');
+  
+  phototableElement.appendChild(pElement1);
+  phototableElement.appendChild(pElement2);
+  phototableElement.appendChild(pElement3);
+  
+  
+  // 練習4-4 箇条書き削除プログラム
+  // ul#location 要素の中の li 要素を全て削除
+  var locationElement = document.getElementById('location');
+  locationElement.innerHTML = '';
+  
+  // 練習4-5 箇条書き追加プログラム
+  data.forEach(function(city) {
+	var listItem = document.createElement('li');
+	listItem.textContent = city.name + ' (' + city.lat + ', ' + city.lng + ')';
+	locationElement.appendChild(listItem);
+  });
+  
