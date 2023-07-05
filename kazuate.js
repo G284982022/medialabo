@@ -7,9 +7,7 @@ function hantei() {
   let yoso = 4;
   kaisu++;
 
-  let kaisuElement = document.getElementById('kaisu');
-  let answerElement = document.getElementById('answer');
-  let resultElement = document.getElementById('result');
+
 
   kaisuElement.textContent = kaisu;
   answerElement.textContent = yoso;
