@@ -5,8 +5,9 @@ let b1 = document.querySelector('button#blue');
 b1.addEventListener('click', changeH1ColorBlue);
 
 //// 以下，練習5-2 でコードを追加
-let b2 = document.querySelector('button#blue');
-b2.addEventListener('click', changeH1ColorBlue);
+let b2 = document.querySelector('button#random'); // ボタンのIDを修正
+b2.addEventListener('click', changeBackgroundColorRandom); // イベントハンドラを修正
+
 
 
 ////////////////////////////////////////////////////////
