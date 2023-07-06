@@ -15,7 +15,7 @@ function hantei() {
 
   // kotae と yoso が一致するかどうか調べて結果を出力
   if (kotae === yoso) {
-    resultElement.textContent = '正解です！おめでとうございます！';
+    resultElement.textContent = '正解です．おめでとう!';
   } else {
     // 回答回数をカウントアップ
     kaisu++;
