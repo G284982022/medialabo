@@ -1,106 +1,63 @@
-let data = {
-  "coord": {
-    "lon": 116.3972,
-    "lat": 39.9075
-  },
-  "weather": [
-    {
-      "id": 803,
-      "main": "Clouds",
-      "description": "曇りがち",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 9.94,
-    "feels_like": 8.65,
-    "temp_min": 9.94,
-    "temp_max": 9.94,
-    "pressure": 1022,
-    "humidity": 14,
-    "sea_level": 1022,
-    "grnd_level": 1016
-  },
-  "visibility": 10000,
-  "wind": {
-    "speed": 2.65,
-    "deg": 197,
-    "gust": 4.84
-  },
-  "clouds": {
-    "all": 53
-  },
-  "dt": 1646542386,
-  "sys": {
-    "type": 1,
-    "id": 9609,
-    "country": "CN",
-    "sunrise": 1646520066,
-    "sunset": 1646561447
-  },
-  "timezone": 28800,
-  "id": 1816670,
-  "name": "北京市",
-  "cod": 200
-};
+const searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', searchWeather);
 
-////////// 課題3-2 ここからプログラムを書こう
+function searchWeather() {
+  const searchInput = document.getElementById('search').value;
+  const cityId = getCityId(searchInput);
 
-console.log("緯度:" + data.coord.lat);
-console.log("経度:" + data.coord.lon);
-for (let x of data.weather){
-  console.log(x.description)
-}
-console.log("最低気温:" + data.main.temp_min);
-console.log("最高気温:" + data.main.temp_max);
-console.log("湿度:" + data.main.humidity);
-console.log("風速:" + data.wind.speed);
-console.log("風向:" + data.wind.deg);
-console.log("都市名:" + data.name);
-
-
-
-
-let b = document.querySelector('#sendRequest');
-b.addEventListener('click', sendRequest);
-
-
-// 通信を開始する処理
-function sendRequest() {
-	// URL を設定
-	let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/{id}.json';
-
-	// 通信開始
-	axios.get(url)
-		.then(showResult)
-		.catch(showError)
-		.then(finish);
+  if (cityId) {
+    const apiUrl = `https://www.nishita-lab.org/web-contents/jsons/openweather/${cityId}.json`;
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('都市の天気情報が見つかりませんでした。');
+        }
+        return response.json();
+      })
+      .then(data => displayWeather(data))
+      .catch(error => {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `<p>${error.message}</p>`;
+      });
+  } else {
+    console.log('都市名が正しくありません。');
+  }
 }
 
-// 通信が成功した時の処理
-function showResult(resp) {
-	// サーバから送られてきたデータを出力
-	let data = resp.data;
+function getCityId(cityName) {
+  const cityIds = {
+    'カイロ': 360630,
+    'モスクワ': 524901,
+    'ヨハネスブルク': 993800,
+    '北京': 1816670,
+    '東京': 1850147,
+    'シンガポール': 1880252,
+    'シドニー': 2147714,
+    'ロンドン': 2643743,
+    'パリ': 2968815,
+    'リオデジャネイロ': 3451189,s
+    'ニューヨーク': 5128581,
+    'ロサンゼルス': 5368361
+  };
 
-	// data が文字列型なら，オブジェクトに変換する
-	if (typeof data === 'string') {
-		data = JSON.parse(data);
-	}
+  const cityNamesInKatakana = Object.keys(cityIds);
+  const cityNameInKatakana = cityNamesInKatakana.find(
+    name => name === cityName
+  );
 
-	// data をコンソールに出力
-	console.log(data);
-
-	// data.x を出力
-	console.log(data.x);
+  return cityNameInKatakana ? cityIds[cityNameInKatakana] : null;
 }
 
-// 通信エラーが発生した時の処理
-function showError(err) {
-	console.log(err);
-}	
-
-// 通信の最後にいつも実行する処理
-function finish() {
-	console.log('Ajax 通信が終わりました');
+function displayWeather(data) {
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = `
+    <h2>${data.name}</h2>
+    <p>天気: ${data.weather[0].description}</p>
+    <p>気温: ${data.main.temp} ℃</p>
+    <p>最低気温: ${data.main.temp_min} ℃</p>
+    <p>最高気温: ${data.main.temp_max} ℃</p>
+    <p>湿度: ${data.main.humidity} %</p>
+    <p>風速: ${data.wind.speed} m/s</p>
+    <p>風向: ${data.wind.deg} °</p>
+  `;
 }
