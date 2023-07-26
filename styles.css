@@ -1,46 +1,101 @@
-body {
-  font-family: Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f1f1f1;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+body {
+  font-family: "Helvetica", Arial, sans-serif;
+  background-color: #f7f1e3; /* やさしいベージュ */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
+  color: #5f27cd; /* パープル */
+  text-align: center;
+  padding: 40px 0;
+  font-size: 48px;
+  letter-spacing: 4px;
+  text-shadow: 3px 3px 6px rgba(95, 39, 205, 0.3);
+}
+
+label {
+  color: #4a148c; /* パープル */
   font-size: 24px;
-  margin-bottom: 20px;
-  color: #333333;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  font-size: 24px;
+  padding: 10px 16px;
+  border: 3px solid #4a148c; /* パープル */
+  border-radius: 10px;
+  color: #4a148c; /* パープル */
+}
+
+button {
+  font-size: 24px;
+  background-color: #ff5722; /* ディープオレンジ */
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(255, 87, 34, 0.2);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e64a19; /* オレンジ */
+}
+
+#result {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.9); /* イメージの透過で軽い空気感を表現 */
 }
 
 h2 {
-  font-size: 20px;
+  color: #d63031; /* レッド */
   margin-bottom: 10px;
-  color: #333333;
+  font-size: 32px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(214, 48, 49, 0.2);
 }
 
-p {
-  margin-bottom: 10px;
-  color: #333333;
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-a {
-  text-decoration: none;
-  color: #0066cc;
+.weather-info p {
+  margin: 5px 0;
+  font-size: 24px;
+  letter-spacing: 1.5px;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin-bottom: 5px;
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
