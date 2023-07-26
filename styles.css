@@ -1,101 +1,56 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  background-color: #f5f5f5;
+}
+
+
+h1 {
+  color: #1E90FF; 
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+a {
+  color:blue; 
+  text-decoration: none;
+}
+
+a:hover {
+  color: #006400; 
+}
+
+
+h2 {
+  font-size: 24px;
+  color: #FF1493; 
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+
+ul li {
+  font-size: 16px;
+  color: #808080; 
+  list-style-type: square;
+}
+
+h3 {
+  font-size: 20px;
+  color: #FF4500; 
+  margin-bottom: 15px;
 }
 
 body {
-  font-family: "Helvetica", Arial, sans-serif;
-  background-color: #f7f1e3; /* やさしいベージュ */
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  color: #5f27cd; /* パープル */
-  text-align: center;
-  padding: 40px 0;
-  font-size: 48px;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 6px rgba(95, 39, 205, 0.3);
-}
-
-label {
-  color: #4a148c; /* パープル */
-  font-size: 24px;
-  letter-spacing: 2px;
-  margin-right: 10px;
-}
-
-input[type="text"] {
-  font-size: 24px;
-  padding: 10px 16px;
-  border: 3px solid #4a148c; /* パープル */
-  border-radius: 10px;
-  color: #4a148c; /* パープル */
-}
-
-button {
-  font-size: 24px;
-  background-color: #ff5722; /* ディープオレンジ */
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  cursor: pointer;
-  border-radius: 10px;
-  text-shadow: 2px 2px 4px rgba(255, 87, 34, 0.2);
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #e64a19; /* オレンジ */
-}
-
-#result {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.city {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.9); /* イメージの透過で軽い空気感を表現 */
-}
-
-h2 {
-  color: #d63031; /* レッド */
-  margin-bottom: 10px;
-  font-size: 32px;
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(214, 48, 49, 0.2);
-}
-
-.weather-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.weather-info p {
-  margin: 5px 0;
-  font-size: 24px;
-  letter-spacing: 1.5px;
-}
-
-.icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(120deg, #87CEFA, #00FF00); 
 }

@@ -6,7 +6,7 @@
 
 body {
   font-family: "Helvetica", Arial, sans-serif;
-  background-color: #f7f1e3; /* やさしいベージュ */
+  background-color: #f7f1e3; 
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  color: #5f27cd; /* パープル */
+  color: #5f27cd;
   text-align: center;
   padding: 40px 0;
   font-size: 48px;
@@ -24,7 +24,7 @@ h1 {
 }
 
 label {
-  color: #4a148c; /* パープル */
+  color: #4a148c; 
   font-size: 24px;
   letter-spacing: 2px;
   margin-right: 10px;
@@ -33,14 +33,14 @@ label {
 input[type="text"] {
   font-size: 24px;
   padding: 10px 16px;
-  border: 3px solid #4a148c; /* パープル */
+  border: 3px solid #4a148c; 
   border-radius: 10px;
-  color: #4a148c; /* パープル */
+  color: #4a148c; 
 }
 
 button {
   font-size: 24px;
-  background-color: #ff5722; /* ディープオレンジ */
+  background-color: #ff5722; 
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-  background-color: #e64a19; /* オレンジ */
+  background-color: #e64a19; 
 }
 
 #result {
@@ -70,11 +70,11 @@ button:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.9); /* イメージの透過で軽い空気感を表現 */
+  background-color: rgba(255, 255, 255, 0.9); 
 }
 
 h2 {
-  color: #d63031; /* レッド */
+  color: #d63031; 
   margin-bottom: 10px;
   font-size: 32px;
   letter-spacing: 2px;
